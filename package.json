@@ -1,0 +1,16 @@
+{
+    "name": "angular-qa-recruitment-app",
+    "version": "1.0.0",
+    "description": "End-to-end tests for the Angular QA Recruitment App",
+    "main": "index.js",
+    "scripts": {
+        "install-browsers": "playwright install",
+        "test": "playwright test --project=chromium"
+    },
+    "author": "Your Name",
+    "license": "ISC",
+    "devDependencies": {
+        "@playwright/test": "^1.39.0",
+        "@types/node": "^20.9.0"
+    }
+}
