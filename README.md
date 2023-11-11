@@ -58,13 +58,6 @@ Prettier is configured with the following settings in `.prettierrc`:
 }
 ```
 
-Run Prettier and ESLint before committing your code to ensure consistency:
-
-```bash
-npx prettier --write .
-npx eslint .
-```
-
 ## Additional Information
 
 - The `package.json` file includes scripts to facilitate running the tests and installing browsers.
