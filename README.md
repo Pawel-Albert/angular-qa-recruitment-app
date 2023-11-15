@@ -2,6 +2,13 @@
 
 This repository contains end-to-end tests for the Angular QA Recruitment App using Playwright.
 
+## Prerequisites
+
+- Node.js version 16.10
+- npm version 8.13.2
+
+Ensure that you have the recommended versions of Node.js and npm installed before proceeding with the setup.
+
 ## Setup
 
 First, clone the repository and install the dependencies:
@@ -40,7 +47,7 @@ Currently, the test suite is configured to run using the Chromium browser only.
 
 ## Code Quality Tools
 
-This project uses Prettier and ESLint to ensure code quality and consistency:
+This project uses Prettier (in larger project ESLint would also be used) to ensure code quality and consistency:
 
 - **Prettier** is an opinionated code formatter that enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
 
@@ -62,5 +69,3 @@ Prettier is configured with the following settings in `.prettierrc`:
 
 - The `package.json` file includes scripts to facilitate running the tests and installing browsers.
 - The Playwright configuration is specified in `playwright.config.ts`, which sets up the testing environment.
-
-For more information on Playwright and its capabilities, visit the [Playwright documentation](https://playwright.dev/).
