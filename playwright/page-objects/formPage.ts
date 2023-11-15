@@ -16,6 +16,7 @@ type FormPageSelectors = {
 };
 
 type FormConfirmationSelectors = {
+    h2: Locator;
     submittedName: Locator;
     submittedAlterEgo: Locator;
     submittedPower: Locator;
@@ -45,10 +46,17 @@ export const createFormPage = (page: Page): FormPage => {
     };
 
     const confirmationSelectors: FormConfirmationSelectors = {
-        submittedName: page.locator('text=Name').locator('xpath=following-sibling::div'),
-        submittedAlterEgo: page.locator('text=Alter Ego').locator('xpath=following-sibling::div'),
-        submittedPower: page.locator('text=Power').locator('xpath=following-sibling::div'),
-        editButton: page.locator('button:has-text("Edit")')
+        h2: page.locator('.container.results >> text=You submitted the following:'),
+        submittedName: page.locator('.container.results >> text=Name').locator('xpath=following-sibling::div').first(),
+        submittedAlterEgo: page
+            .locator('.container.results >> text=Alter Ego')
+            .locator('xpath=following-sibling::div')
+            .first(),
+        submittedPower: page
+            .locator('.container.results >> text=Power')
+            .locator('xpath=following-sibling::div')
+            .first(),
+        editButton: page.locator('.container.results >> button:has-text("Edit")')
     };
 
     const actions: FormPageActions = {

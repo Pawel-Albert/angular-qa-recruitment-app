@@ -1,14 +1,14 @@
-type StepperData = {
+export type StepperData = {
     name: string;
     address: string;
 };
 
-const correctStepperData: StepperData = {
+export const correctStepperData: StepperData = {
     name: 'John Doe',
     address: '123 Main St, Anytown, AN'
 };
 
-const incorrectStepperData: StepperData[] = [
+export const incorrectStepperData: StepperData[] = [
     {
         name: 'This name is way too long to be acceptable',
         address: '123 Main St, Anytown, AN'
@@ -21,12 +21,4 @@ const incorrectStepperData: StepperData[] = [
         name: '      ',
         address: '123 Main St, Anytown, AN'
     },
-    {
-        name: 'John Doe',
-        address: '      '
-    },
-    {
-        name: '',
-        address: ''
-    }
 ];

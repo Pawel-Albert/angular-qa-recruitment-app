@@ -10,7 +10,10 @@ type NavbarComponentSelectors = {
     youTubeNavItem: Locator;
 };
 
-type NavbarComponentActions = {};
+type NavbarComponentActions = {
+    clickFormNavItem: () => Promise<void>;
+    clickStepperNavItem: () => Promise<void>;
+};
 export interface NavbarComponent {
     selectors: NavbarComponentSelectors;
     actions: NavbarComponentActions;
@@ -27,9 +30,16 @@ export const createNavbarComponent = (page: Page) => {
         youTubeNavItem: page.locator('#angular-on-youtube-svg')
     };
 
-    const actcions: NavbarComponentActions = {};
+    const actions: NavbarComponentActions = {
+        clickFormNavItem: async () => {
+            await selectors.formNavItem.click();
+        },
+        clickStepperNavItem: async () => {
+            await selectors.stepperNavItem.click();
+        }
+    };
     return {
         selectors,
-        actcions
+        actions
     };
 };

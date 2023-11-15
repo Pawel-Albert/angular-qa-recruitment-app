@@ -6,14 +6,17 @@ type StepperPageSelectors = {
     addressInput: Locator;
     backButton: Locator;
     resetButton: Locator;
+    stepContentAddress: Locator;
+    stepContentSummary: Locator;
     submittedName: Locator;
     submittedAddress: Locator;
 };
 
 type StepperPageActions = {
     fillName: (name: string) => Promise<void>;
-    clickNext: () => Promise<void>;
+    clickNextwithIndex: (index: number) => Promise<void>;
     clickBack: () => Promise<void>;
+    fillAddress: (address: string) => Promise<void>;
     clickReset: () => Promise<void>;
 };
 
@@ -29,19 +32,24 @@ export const createStepperPage = (page: Page): StepperPage => {
         addressInput: page.locator('#mat-input-1'),
         backButton: page.locator('button:has-text("Back")'),
         resetButton: page.locator('button:has-text("Reset")'),
-        submittedName: page.locator('text=Name:').locator('xpath=following-sibling::p'),
-        submittedAddress: page.locator('text=Address:').locator('xpath=following-sibling::p')
+        stepContentAddress: page.locator('#cdk-step-content-0-1'),
+        stepContentSummary: page.locator('#cdk-step-content-0-2'),
+        submittedName: page.locator('text=Name:'),
+        submittedAddress: page.locator('text=Address:')
     };
 
     const actions: StepperPageActions = {
         fillName: async (name: string) => {
             await selectors.nameInput.fill(name);
         },
-        clickNext: async () => {
-            await selectors.nextButton.click();
+        clickNextwithIndex: async index => {
+            await selectors.nextButton.nth(index).click();
         },
         clickBack: async () => {
             await selectors.backButton.click();
+        },
+        fillAddress: async (address: string) => {
+            await selectors.addressInput.fill(address);
         },
         clickReset: async () => {
             await selectors.resetButton.click();

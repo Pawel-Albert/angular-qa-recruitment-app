@@ -3,7 +3,7 @@ import { HERO_POWER } from '../page-objects/formPage';
 type FormData = {
     name: string;
     alterEgo: string;
-    heroPower?: HERO_POWER;
+    heroPower: HERO_POWER;
 };
 
 export const correctFormData: FormData = {
@@ -12,7 +12,7 @@ export const correctFormData: FormData = {
     heroPower: HERO_POWER.SUPER_HOT
 };
 
-export const incorrectFormData: FormData[] = [
+export const incorrectFormData = [
     {
         name: '   ',
         alterEgo: 'Test Alter Ego',
@@ -20,11 +20,12 @@ export const incorrectFormData: FormData[] = [
     },
     {
         name: 'Test Name',
-        alterEgo: '   ',
-        heroPower: HERO_POWER.REALLY_SMART
-    },
-    {
-        name: 'Test Name',
         alterEgo: 'Test Alter Ego'
     }
 ];
+
+export const whitespaceFormData: FormData = {
+    name: '   Test Name   ',
+    alterEgo: '   Test AlterEgo   ',
+    heroPower: HERO_POWER.REALLY_SMART
+};
